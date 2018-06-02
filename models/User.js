@@ -52,11 +52,9 @@ const userSchema = new mongoose.Schema({
 userSchema.pre('save', function (next) {
   const user = this;
   if (user.isModified('password') || this.isNew) {
-    console.log(this.password);
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(this.password, salt);
     this.password = hash;
-    console.log(`after hash : ${this.password}`);
   }
   next();
 });
