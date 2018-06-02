@@ -114,3 +114,10 @@ a.genric-btn.warning.circle.arrow {
   color: white;
   font-size: 24px;
 }
+.navbar-brand {
+  padding: 0 !important;
+}
+.navbar-brand img {
+  width: 55px;
+  height: 55px;  
+}

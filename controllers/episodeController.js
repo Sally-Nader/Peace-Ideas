@@ -31,8 +31,3 @@ exports.viewEpisode = async (req, res) => {
   const episode = await Episode.findById(episodeId);
   res.render('episode', { episode, playlistName });
 };
-
-// exports.allEpisodes = async (req, res) => {
-//   const episodes = await Episode.find({});
-//   res.render('episodes', { episodes });
-// };

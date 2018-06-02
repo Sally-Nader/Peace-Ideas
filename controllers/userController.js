@@ -79,11 +79,6 @@ exports.authenticate = (req, res) => {
   });
 };
 
-
-exports.test = (req, res) => {
-  res.send(req.session.userToken);
-};
-
 exports.getLoginForm = (req, res) => {
   res.render('login');
 };
@@ -94,3 +89,6 @@ exports.getMyProfile = async (req, res) => {
   res.render('myProfile', { user });
 };
 
+exports.home = (req, res) => {
+  res.render('home');
+};

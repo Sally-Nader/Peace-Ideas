@@ -9,10 +9,7 @@ const episodeController = require('../controllers/episodeController');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.render('main', { title: 'Express' });
-});
-
+router.get('/', userController.home);
 router.get('/episode/:playlistName/:episodeId', episodeController.viewEpisode);
 router.get('/episode-form/:playlistId', episodeController.episodeForm);
 router.post('/add-episode/:playlistId', episodeController.addEpisode);
@@ -28,7 +25,6 @@ router.post('/register', userController.upload, userController.validateInputRegi
 router.post('/authenticate', userController.authenticate);
 router.get('/login', userController.getLoginForm);
 router.get('/logout', checkAuth.logout);
-router.get('/test', userController.test);
 router.get('/my-profile', checkAuth.check, userController.getMyProfile);
 
 module.exports = router;
