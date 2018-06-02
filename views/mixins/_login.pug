@@ -1,0 +1,13 @@
+mixin loginForm()
+  section.commentform-area.pb-120.pt-80.mb-100
+    form(action="/authenticate"  method="POST")
+      .container
+        h5.text-uppercas.pb-50 Login
+          .row.flex-row.d-flex
+            .col-lg-6
+              .mt-10
+                input.single-input-primary(type='text', name='email', placeholder='Email', value=(body && body.email))
+              .mt-10
+                input.single-input-primary(type='password', name='password', placeholder='Password', value=(body && body.password))                
+              .mt-10
+                button.genric-btn.success.circle.arrow Login        

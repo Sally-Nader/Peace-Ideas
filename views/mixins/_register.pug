@@ -1,0 +1,30 @@
+mixin registerForm()
+  section.commentform-area.pb-120.pt-80.mb-100
+    form(action="/register" enctype="multipart/form-data"  method="POST")
+      .container
+        h5.text-uppercas.pb-50 Regsiter With Us
+          .row.flex-row.d-flex
+            .col-lg-6
+              .mt-10
+                input.single-input-primary(type='text', name='email', placeholder='Email', value=(body && body.email))
+                .mt-10
+                input.single-input-primary(type='password', name='password', placeholder='Password', value=(body && body.password))
+                .mt-10
+                input.single-input-primary(type='password', name='confirm-password', placeholder='Confirm The Pasword', value=(body && body.confirm-password))
+              .mt-10
+                input.single-input-primary(type='text', name="name[firstName]", placeholder='First Name', value=(body && body.name[firstName]))
+              .mt-10
+                input.single-input-primary(type='text', name="name[lastName]", placeholder='Last Name', value=(body && body.name[lastName]))
+              .mt-10
+                .input-group-icon.mt-10                
+                  #default-select.form-select
+                    select(name='gender')
+                      option(value='female') female
+                      option(value='male') male                   
+
+              .mt-10
+                label.fileContainer
+                  p Upload Profile Picture →
+                  input(type='file' name="image") 
+              .mt-10
+                button.primary-btn.mt-20 Regsiter        

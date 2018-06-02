@@ -1,0 +1,26 @@
+mixin episode(episode={}, index, playlist)
+  .post-wrapper.pt-100
+    .post-area
+      .container        
+          .single-list.flex-row.d-flex
+            .thumb
+              .date
+                span #{index+1}
+                
+              img(src='img/asset/l4.jpg', alt='')
+            .detail
+              a(href=`/episode/${playlist}/${episode._id}`)
+                h4.pb-20
+                  | #{episode.title} 
+                  br
+                  |                                     
+              p
+                | #{episode.description}.
+              p.footer.pt-20
+                i.fa.fa-heart-o(aria-hidden='true')
+                a(href='#') 06 Likes
+                i.ml-20.fa.fa-comment-o(aria-hidden='true')
+                a(href='#') 02 Comments
+          
+                a.glyphicon.glyphicon-trash(type='button', href=`/delete-episode/${episode._id}/${playlist._id}`)                
+                  

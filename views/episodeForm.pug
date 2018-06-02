@@ -1,0 +1,10 @@
+extends layout
+
+include mixins/_episodeForm
+include mixins/_formHeader
+
+block formHeader
+  +formHeader(title)
+block content
+  .container
+    +episodeForm()  

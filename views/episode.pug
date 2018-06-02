@@ -1,0 +1,40 @@
+extends layout 
+
+include mixins/_episodeHeader
+
+block content  
+  +episodeHeader(playlistName)   
+  .post-wrapper.pt-100
+    // Start post Area
+    section.post-area
+      .container
+        .row.justify-content-center
+          .col-lg-8
+            .single-page-post                
+              iframe(width='732', height='345', src= episode.video)
+              .top-wrapper
+                .row.d-flex.justify-content-between
+                  h2.col-lg-8.col-md-12.text-uppercase
+                    | #{episode.title}
+                  .col-lg-4.col-md-12.right-side.d-flex.justify-content-end                      
+                    .user-img
+                      img(src=`uploads/img/`, alt='')
+              .tags
+                ul
+                  li
+                    a(href='#') lifestyle
+                  li
+                    a(href='#') Art
+                  li
+                    a(href='#') Technology
+                  li
+                    a(href='#') Fashion
+              .single-post-content
+                p #{episode.description}
+                  
+                
+               
+            
+            
+              
+              

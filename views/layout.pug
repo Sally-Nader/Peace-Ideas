@@ -1,0 +1,169 @@
+doctype html
+html.no-js(lang='zxx')
+	head
+		// Mobile Specific Meta
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		// Favicon
+		link(rel='shortcut icon', href='img/fav.png')
+		// Author Meta
+		meta(name='author', content='colorlib')
+		// Meta Description
+		meta(name='description', content='')
+		// Meta Keyword
+		meta(name='keywords', content='')
+		// meta character set
+		meta(charset='UTF-8')
+		// Site Title
+		title Blogger
+		link(href='https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700', rel='stylesheet')
+		//
+			CSS
+			=============================================
+		base(href='/')
+		link(rel='stylesheet', href='css/linearicons.css')
+		link(rel='stylesheet', href='css/font-awesome.min.css')
+		link(rel='stylesheet', href='css/bootstrap.css')
+		link(rel='stylesheet', href='css/owl.carousel.css')
+		link(rel='stylesheet', href='css/main.css')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+	body
+		block formHeader
+		// Start Header Area
+		header.default-header
+			nav.navbar.navbar-expand-lg.navbar-light
+				.container
+					a.navbar-brand(href='/')
+						img(src='img/logo.png', alt='')
+					button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+						span.navbar-toggler-icon
+					#navbarSupportedContent.collapse.navbar-collapse.justify-content-end.align-items-center
+						ul.navbar-nav
+							li
+								a(href='#home') Home
+							li
+								a(href='/my-profile') My Profile
+							li
+								a(href='/playlists') Playlist
+							li
+								a(href='#fashion') fashion
+							li
+								a(href='#team') team
+							// Dropdown
+							if (locals.session.userName)
+								li.dropdown
+									a#navbardrop.dropdown-toggle(href='#', data-toggle='dropdown')
+										|  #{locals.session.userName}
+									.dropdown-menu
+										a.dropdown-item(href='/my-profile') My Profile
+										a.dropdown-item(href='/logout') Logout
+							else
+								li.dropdown
+									a#navbardrop.dropdown-toggle(href='#', data-toggle='dropdown')
+										|  log
+									.dropdown-menu
+										a.dropdown-item(href='/login') Login
+										a.dropdown-item(href='/register') Register			
+		// End Header Area
+		// start banner Area
+		block messages
+			if locals.flashes
+				.container
+					.col-lg-6.mt-10
+						.inner.inner--flashes
+							.flash-messages
+								- const categories = Object.keys(flashes)
+								each category in categories
+									each message in flashes[category]
+										.flash(class=`flash--${category}`)
+											p.flash__text!= message
+											button.flash__remove(onClick="this.parentElement.remove()") &times;
+				
+		block content
+			
+
+		// start footer Area
+		footer.footer-area.section-gap
+			.container
+				.row
+					.col-lg-3.col-md-12
+						.single-footer-widget
+							h6 Top Products
+							ul.footer-nav
+								li
+									a(href='#') Managed Website
+								li
+									a(href='#') Manage Reputation
+								li
+									a(href='#') Power Tools
+								li
+									a(href='#') Marketing Service
+					.col-lg-6.col-md-12
+						.single-footer-widget.newsletter
+							h6 Newsletter
+							p You can trust us. we only send promo offers, not a single spam.
+							#mc_embed_signup
+								form.form-inline(target='_blank', novalidate='true', action='https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&id=92a4423d01', method='get')
+									.form-group.row(style='width: 100%')
+										.col-lg-8.col-md-12
+											input(name='EMAIL', placeholder='Enter Email', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Enter Email '", required='', type='email')
+											div(style='position: absolute; left: -5000px;')
+												input(name='b_36c4fd991d266f23781ded980_aefe40901a', tabindex='-1', value='', type='text')
+										.col-lg-4.col-md-12
+											button.nw-btn.primary-btn
+												| Subscribe
+												span.lnr.lnr-arrow-right
+									.info
+					.col-lg-3.col-md-12
+						.single-footer-widget.mail-chimp
+							h6.mb-20 Instragram Feed
+							ul.instafeed.d-flex.flex-wrap
+								li
+									img(src='img/i1.jpg', alt='')
+								li
+									img(src='img/i2.jpg', alt='')
+								li
+									img(src='img/i3.jpg', alt='')
+								li
+									img(src='img/i4.jpg', alt='')
+								li
+									img(src='img/i5.jpg', alt='')
+								li
+									img(src='img/i6.jpg', alt='')
+								li
+									img(src='img/i7.jpg', alt='')
+								li
+									img(src='img/i8.jpg', alt='')
+				.row.footer-bottom.d-flex.justify-content-between
+					// Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+					p.col-lg-8.col-sm-12.footer-text
+						| Copyright ©
+						script.
+							document.write(new Date().getFullYear());
+						|  All rights reserved | This template is made with 
+						i.fa.fa-heart-o(aria-hidden='true')
+						|  by 
+						a(href='https://colorlib.com', target='_blank') Colorlib
+					// Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+					.col-lg-4.col-sm-12.footer-social
+						a(href='#')
+							i.fa.fa-facebook
+						a(href='#')
+							i.fa.fa-twitter
+						a(href='#')
+							i.fa.fa-dribbble
+						a(href='#')
+							i.fa.fa-behance
+		// End footer Area
+		script(src='js/vendor/jquery-2.2.4.min.js')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js', integrity='sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4', crossorigin='anonymous')
+		script(src='js/vendor/bootstrap.min.js')
+		script(src='js/jquery.ajaxchimp.min.js')
+		script(src='js/parallax.min.js')
+		script(src='js/owl.carousel.min.js')
+		script(src='js/jquery.magnific-popup.min.js')
+		script(src='js/jquery.sticky.js')
+		script(src='js/main.js')
+		script(src='js/delete-playlist.js')

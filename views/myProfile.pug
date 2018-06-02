@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  .container
+    #{user}
+    .post-wrapper.pt-100
+      .post-area
+        .row.justify-content-center
+          .col-lg-8.sidebar-area
+            .single_widget.about_widget
+              img(src=`img/uploads/${user.image}`, alt='')
+              h2.text-uppercase= `${user.name.firstName} ${user.name.lastName}` 
+              p
+                | MCSE boot camps have its supporters and
+                | its detractors. Some people do not understand why you should have to spend money
+              .social-link
+                a(href='#')
+                  button.btn
+                    i.fa.fa-facebook(aria-hidden='true')
+                    |  Like
+                a(href='#')
+                  button.btn
+                    i.fa.fa-twitter(aria-hidden='true')
+                    |  follow
+    .main-wrapper
+      .main-wrapper        
+        .container
+          .row
+            each playlist in user.playlists
+              .col-lg-3.col-md-6.single-fashion
+                img.img-fluid(src='img/f1.jpg', alt='')
+                p.date #{h.moment(playlist.created).fromNow()}               
+                a(href=`/playlist/${playlist.id}`)
+                  h4
+                  | #{playlist.name}
+                p
+                  | #{playlist.description}.
+                .meta-bottom.d-flex.justify-content-between
+                  p
+                    span.lnr.lnr-heart
+                    |  15 Likes
+                  p
+                    span.lnr.lnr-bubble
+                    |  02 Comments
+            

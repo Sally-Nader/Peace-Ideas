@@ -1,0 +1,10 @@
+mixin episodeForm(episode={})  
+  h5.text-uppercas.pb-50 Add Episode
+  .row.flex-row.d-flex
+    .col-lg-6
+      form(action=`/add-episode/${playlistId}` method="POST")
+        input.common-input.mb-20.form-control(name='title', placeholder='Enter Title', type='text')
+        input.common-input.mb-20.form-control(name='video', placeholder='Enter Video Link',  type='text')
+      
+        textarea.form-control.mb-10(name='description', placeholder='Description')
+        button.primary-btn.mt-20(type="submit") Add Episode

@@ -1,0 +1,77 @@
+extends layout 
+
+include mixins/_episode
+
+block content
+  .container    
+    .post-wrapper.pt-100
+      // Start post Area
+      section.post-area
+        .container
+          .row.justify-content-center
+            .col-lg-8
+              .single-page-post
+                img.img-fluid(src='img/single.jpg', alt='')
+                .top-wrapper
+                  .row.d-flex.justify-content-between
+                    h2.col-lg-8.col-md-12.text-uppercase
+                      | #{playlist.name}
+                    .col-lg-4.col-md-12.right-side.d-flex.justify-content-end
+                      .desc
+                        h2 #{playlist.author.name.firstName} #{playlist.author.name.lastName} 
+                        h3 #{h.moment(playlist.created).fromNow()}
+                      .user-img
+                        img(src=`uploads/img/${playlist.author.image}`, alt='')
+                .tags
+                  ul
+                    li
+                      a(href='#') lifestyle
+                    li
+                      a(href='#') Art
+                    li
+                      a(href='#') Technology
+                    li
+                      a(href='#') Fashion
+                .single-post-content
+                  p= playlist.description
+                    
+                  p
+                    | MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has the willpower to actually sit through a self-imposed MCSE training.
+                  //view all episodes in the playlist
+                  each episode, index in playlist.episodes
+                    +episode(episode, index, playlist)           
+                
+               
+            .col-sm-4.sidebar-area
+              .button-group-area.mt-40
+                a.genric-btn.warning.circle.arrow(href=`/episode-form/${playlist._id}`)
+                  | Add Episode
+                  span.lnr.lnr-arrow-right
+            
+              .single_widget.about_widget
+                img(src=`uploads/img/${playlist.author.image}`, alt='')
+                h2.text-uppercase #{playlist.author.name.firstName} #{playlist.author.name.lastName} 
+                p
+                  | MCSE boot camps have its supporters and
+                  | its detractors. Some people do not understand why you should have to spend money
+                .social-link
+                  a(href='#')
+                    button.btn
+                      i.fa.fa-facebook(aria-hidden='true')
+                      |  Like
+                  a(href='#')
+                    button.btn
+                      i.fa.fa-twitter(aria-hidden='true')
+                      |  follow
+              .single_widget.cat_widget
+                h4.text-uppercase.pb-20 Episodes
+                ul
+                  each episode, index in playlist.episodes
+                    li
+                      a(href='#')
+                        | #{episode.title} 
+                        span #{index+1}
+                  
+              
+              
+              

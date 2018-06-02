@@ -1,0 +1,39 @@
+{
+  "name": "peaceideas",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./start.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt": "^2.0.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "~1.18.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^5.0.1",
+    "eslint": "^4.19.1",
+    "express": "~4.15.5",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.1.2",
+    "jsonwebtoken": "^8.2.1",
+    "md5": "^2.2.1",
+    "moment": "^2.22.1",
+    "mongoose": "^5.0.16",
+    "mongoose-mongodb-errors": "0.0.2",
+    "morgan": "^1.9.0",
+    "multer": "^1.3.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local-mongoose": "^5.0.0",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "~2.4.5",
+    "validator": "^9.4.1"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0"
+  }
+}

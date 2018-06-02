@@ -1,0 +1,19 @@
+extends layout
+
+include mixins/_playlistForm
+include mixins/_formHeader
+
+block formHeader
+  +formHeader(title)
+block content
+  .container
+    .row
+      .col-sm-8
+        +playlistForm(playlist)
+      .col-sm-4
+        .button-group-area.mt-40
+          a.genric-btn.warning.circle.arrow(href=`/episode-form/${playlist._id}`)
+            | Add Episode
+            span.lnr.lnr-arrow-right
+
+      

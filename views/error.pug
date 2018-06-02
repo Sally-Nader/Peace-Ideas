@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  .container
+    br
+    h1= message
+    h2= status
+    pre #{err.stack}
+    pre #{errorDetails.stackHighlighted}

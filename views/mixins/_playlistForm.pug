@@ -1,0 +1,17 @@
+mixin playlistForm(playlist= {})  
+  .section-top-border
+    .row
+      .col-lg-8.col-md-8
+        form(action=`/add-playlist/${playlist._id || ''}` method="POST")          
+          .mt-10
+            input.single-input-primary(type='text', name='name', placeholder='Playlist Name' value=(body && body.name || playlist.name))
+          .mt-10
+            textarea.single-textarea(name="description" placeholder='Description' value=(body && body.description || playlist.description)) #{playlist.description}
+              
+         
+          .mt-10
+            button.nw-btn.primary-btn
+              | Add
+              span.lnr.lnr-arrow-right
+      
+        

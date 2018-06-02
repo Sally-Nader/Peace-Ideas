@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  section#fashion.fashion-area.section-gap
+    .container
+      .row.d-flex.justify-content-center
+        .menu-content.pb-70.col-lg-8
+          .title.text-center
+            h1.mb-10 Fashion News This Week
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua.
+      .row
+        if playlists
+          each playlist in playlists
+            .col-lg-3.col-md-6.single-fashion
+              a(href=`/playlist/${playlist._id}`)
+                img.img-fluid(src='img/f1.jpg', alt='')
+              if playlist.author.equals(locals.session.userID)              
+                a(href=`/playlist-form/${playlist._id}`)
+                  span.glyphicon.glyphicon-edit
+                
+                
+                // Trigger the modal with a button
+                span.glyphicon.glyphicon-trash(type='button', data-toggle='modal', data-target='#myModal')                
+                // Modal
+                #myModal.modal.fade(role='dialog')
+                  .modal-dialog
+                    // Modal content
+                    .modal-content
+                      .modal-header
+                        h4.modal-title Delete Playlist                        
+                      .modal-body
+                        p You want to delete #{playlist.name} playlist ?
+                      .modal-footer
+                        a.btn.btn-default.delete-playlist(href=`/delete-playlist/${playlist._id}`) Yes Delete
+                        button.btn.btn-default(type='button', data-dismiss='modal') Close                        
+                  
+              p.date #{h.moment(playlist.created).fromNow()}
+              h4
+                a(href=`/playlist/${playlist._id}`)
+                  | #{playlist.name}
+              p
+                | #{playlist.description}
+              .meta-bottom.d-flex.justify-content-between
+                p
+                  span.lnr.lnr-heart
+                  |  15 Likes
+                p
+                  span.lnr.lnr-bubble
+                  |  02 Comments       
+      a.primary-btn.load-more.pbtn-2.text-uppercase.mx-auto.mt-60(href='#') Load More 
